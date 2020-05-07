@@ -18,7 +18,28 @@ public static void instruktionsNamn(String namn) {
 	Scanner input = new Scanner(System.in);
 	String name = input.nextLine();
 	
-	System.out.println("Hej " + name + "! Hoppas att du kommer gilla min program ");
+	System.out.println("Hej " + name + "! Hoppas att du kommer gilla min program");
+	
+	twoOnePlayers(name, false);
+}
+
+public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
+	String svar1A = "Ja";
+	String svar1B = "ja";
+	String svar2A = "Nej";
+	String svar2B = "nej";
+	
+	System.out.println("Ok " + name + " Skulle du vilja köra i tvåspelarläge eller enspelareläge?");
+	Scanner input = new Scanner(System.in);
+	String svar = input.nextLine();
+	
+	if (svar == svar1A || svar == svar1B) {
+		oneOrTwoPlayers = true;
+	}
+	
+	if (svar == svar2A || svar == svar2B) {
+		oneOrTwoPlayers = false;
+	}
 	
 	
 	
