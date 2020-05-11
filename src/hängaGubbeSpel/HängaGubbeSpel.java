@@ -24,27 +24,47 @@ public static void instruktionsNamn(String namn) {
 }
 
 public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
-	String svar1A = "Ja";
-	String svar1B = "ja";
-	String svar2A = "Nej";
-	String svar2B = "nej";
+	String svar1A = "Two";
+	String svar1B = "two";
+	String svar2A = "En";
+	String svar2B = "en";
 	
-	System.out.println("Ok " + name + " Skulle du vilja köra i tvåspelarläge eller enspelareläge?");
+	System.out.println("Ok " + name + " Skulle du vilja köra i tvåspelarläge eller enspelareläge? (En/Two)");
 	Scanner input = new Scanner(System.in);
 	String svar = input.nextLine();
 	
 	if (svar == svar1A || svar == svar1B) {
 		oneOrTwoPlayers = true;
+	    secondPlayerName(name,true);
 	}
 	
 	if (svar == svar2A || svar == svar2B) {
 		oneOrTwoPlayers = false;
+
+	}
+}
+	
+	public static void secondPlayerName(String name, boolean oneOrTwoPlayers) {
+		System.out.println("Ok " + name + " Nu skulle jag ochså vilja ha namnet på andra personen av samma skäl!");
+		
+		Scanner input = new Scanner(System.in);
+		String secondPlayerName = input.nextLine();
+		
+		System.out.println("Hej " + secondPlayerName + "! Hoppas du och " + name + " har det kul!");
+		
+		twoPlayerSentencesOrWords(name, true, secondPlayerName);
+		
+	}
+	
+	public static void twoPlayerSentencesOrWords(String name, boolean oneOrTwoPlayers, String secondPlayerName) {
+		
 	}
 	
 	
 	
 	
-}
+	
+
 	
 	
 	
