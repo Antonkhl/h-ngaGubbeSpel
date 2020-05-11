@@ -57,8 +57,42 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	}
 	
 	public static void twoPlayerSentencesOrWords(String name, boolean oneOrTwoPlayers, String secondPlayerName) {
+		String svar1A = "Ord";
+		String svar1B = "ord";
+		String svar2A = "Mening";
+		String svar2B = "mening";
+		
+		System.out.println("Ok " + name + " och" + secondPlayerName + " Skulle ni vilja gissa på ord eller meningar? (Ord/Mening)" );
+		
+		Scanner input = new Scanner(System.in);
+	    String svar = input.nextLine();
+	    
+	    if (svar==svar1B || svar==svar1A ) {
+	    	boolean sentencesOrWords = true;
+	    	selfDefiningWords(name,true,secondPlayerName,true);
+	    	
+	    }
+	    
+	    if (svar==svar2B || svar==svar2A ) {
+	    	boolean sentencesOrWords = false;
+	    }
+	    
+	}
+	    
+	    public static void selfDefiningWords(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords ) {
+	    	String svar1A = "Ord";
+			String svar1B = "ord";
+			String svar2A = "Mening";
+			String svar2B = "mening";
+	    	
+	    	System.out.println("Ok " + name + " och" + secondPlayerName + " Skulle ni vilja själva ange ordet som den andra ska gissa på eller välja bland en biblotek? " );
+            
+			
+
 		
 	}
+	
+	
 	
 	
 	
