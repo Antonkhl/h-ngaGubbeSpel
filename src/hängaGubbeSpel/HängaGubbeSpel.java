@@ -34,12 +34,12 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	Scanner input = new Scanner(System.in);
 	String svar = input.nextLine();
 	
-	if (svar == svar1A || svar == svar1B) {
+	if (svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
 		oneOrTwoPlayers = true;
 	    secondPlayerName(name,true);
 	}
 	
-	if (svar == svar2A || svar == svar2B) {
+	if (svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
 		oneOrTwoPlayers = false;
 
 	}
@@ -63,18 +63,18 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		String svar2A = "Mening";
 		String svar2B = "mening";
 		
-		System.out.println("Ok " + name + " och" + secondPlayerName + " Skulle ni vilja gissa på ord eller meningar? (Ord/Mening)" );
+		System.out.println("Ok " + name + " och " + secondPlayerName + " Skulle ni vilja gissa på ord eller meningar? (Ord/Mening)" );
 		
 		Scanner input = new Scanner(System.in);
 	    String svar = input.nextLine();
 	    
-	    if (svar==svar1B || svar==svar1A ) {
+	    if (svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
 	    	boolean sentencesOrWords = true;
 	    	selfDefiningWords(name,true,secondPlayerName,true);
 	    	
 	    }
 	    
-	    if (svar==svar2B || svar==svar2A ) {
+	    if (svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
 	    	boolean sentencesOrWords = false;
 	    }
 	    
@@ -86,31 +86,31 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 			String svar2A = "Biblotek";
 			String svar2B = "biblotek";
 	    	
-	    	System.out.println("Ok " + name + " och" + secondPlayerName + " Skulle ni vilja själva ange ordet som den andra ska gissa på eller välja bland en biblotek? (Själv/Biblotek) " );
+	    	System.out.println("Ok " + name + " och " + secondPlayerName + " Skulle ni vilja själva ange ordet som den andra ska gissa på eller välja bland en biblotek? (Själv/Biblotek) " );
 	    	
 	    	Scanner input = new Scanner(System.in);
 		    String svar = input.nextLine();
 		    
-		    if (svar==svar1B || svar==svar1A ) {
+		    if (svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
 		    	boolean selfDefining = false;
-		    	defineTheWord(name,true,secondPlayerName,true,false);
+		    	defineTheWord(name,true,secondPlayerName,true,false,true);
 		    	
 		    }
 		    
-		    if (svar==svar2B || svar==svar2A ) {
+		    if (svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
 		    	boolean selfDefining = true;
 		    }
 		    
 	    }
 	    	
 		    
-		    public static void defineTheWord(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining) {
+		    public static void defineTheWord(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, boolean playerGuessing) {
 		    	String svar1A = name;
 		    	String svar1B = name.substring(0, 1).toUpperCase() + name.substring(1);
 		    	String svar2A = secondPlayerName;
 		    	String svar2B = secondPlayerName.substring(0, 1).toUpperCase() + secondPlayerName.substring(1);
 		    	
-		    	System.out.println("Ok " + name + " och" + secondPlayerName + "Ni valde att själva definera ord!" );
+		    	System.out.println("Ok " + name + " och " + secondPlayerName + " Ni valde att själva definera ord!" );
 		    	System.out.println("Nu ska ni bestämma vem ska då definera ord för den andra! Jag kommer ge er nu 20 sekunder att bestäma vem det ska vara, kör igång!" );
 		    	System.out.println("Timern börjar.... NU" );
 
@@ -123,12 +123,13 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    		System.out.println("något gick fel");
 		    	}
 		    	
-		    	System.out.println("Ok! " + name + " och" + secondPlayerName + " Vem kommer definera orden? ( " + name + " / " + secondPlayerName + " ) ");
+		    	System.out.println("Ok! " + name + " och " + secondPlayerName + " Vem kommer definera orden? ( " + name + " / " + secondPlayerName + " ) ");
 		    	Scanner input = new Scanner(System.in);
 			    String svar = input.nextLine();
 			    
 			    
-			    if(svar == svar1A || svar == svar1B ) {
+			    if(svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
+			    	playerGuessing = true;
 			    	System.out.println("Ok! " + name + " Du får äran att välja ordet som " + secondPlayerName + " Ska gissa på!" );
 			    	System.out.println("Jag kommer ge dig " + name + " 30 sekunder för att komma på ett ord och för att " + secondPlayerName + " ska kolla bort!");
 			    	System.out.println("timern börjar.... NU");
@@ -141,7 +142,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 				    		System.out.println("något gick fel");
 				    	}
 			    	
-			    	System.out.println("Ok! Nu hoppas jag att du " + name + "har hittat på ett ord, kan du ange det?");
+			    	System.out.println("Ok! Nu hoppas jag att du " + name + " har hittat på ett ord, kan du ange det?");
 			    	String svar2 = input.nextLine();
 			    	
 			    	if(svar2.contains(" ")) {
@@ -149,29 +150,60 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 			    	}
 			    	
 			    	else {
+			    		for(int i = 0; i < 50; i++) {
+			    			System.out.println(" ");
+			    		}
+			    		System.out.println("Ok! Nu kan du tala om för " + secondPlayerName + " att han kan kola hit igen");
 			    		String correctWord = svar2;
-			    		preMainGame(name,true,secondPlayerName,true,false,correctWord);
+			    		preMainGame(name,true,secondPlayerName,true,false,correctWord,true);
 			    		
 			    	}
-
-			    
 			    	
+			   
 			    }
 			    
+			    if(svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
+			    	playerGuessing = false;
+			    	System.out.println("Ok! " + secondPlayerName + " Du får äran att välja ordet som " + name + " Ska gissa på!" );
+			    	System.out.println("Jag kommer ge dig " + secondPlayerName + " 30 sekunder för att komma på ett ord och för att " + name + " ska kolla bort!");
+			    	System.out.println("timern börjar.... NU"); 
+			    	
+			    	try {
+				    	TimeUnit.SECONDS.sleep(30);
+				    	}
+				    	
+				    	catch(Exception e) {
+				    		System.out.println("något gick fel");
+				    	}
+			    	
+			    	System.out.println("Ok! Nu hoppas jag att du " + secondPlayerName + " har hittat på ett ord, kan du ange det?");
+			    	String svar2 = input.nextLine();
+			    	
+			    	if(svar2.contains(" ")) {
+			    		System.out.println("Sorry! Men jag vill inte ha några mellanrum mellan ord! Om du vill köra med meningar får du starta om programet och välja meningar istället för ord");
+			    	}
+			    	
+			    	else {  
+			    		for(int i = 0; i < 50; i++) {
+			    			System.out.println(" ");
+			    		}
+				    	System.out.println("Ok! Nu kan du tala om för " + name + " att han kan kola hit igen");
+			    		String correctWord = svar2;
+			    		preMainGame(name,true,secondPlayerName,true,false,correctWord,false);
+			    		
+			    	}
+			    	
+
+		    	 }
 			    
 			    
 		    	}
 			    
-	
-		    	
-		    
-		    
-	    	
-			
-
 		
-		    public static void preMainGame(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord) {
+		    public static void preMainGame(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing) {
 	    		
+		    	
+		    	
 	    	}
 	
 	
