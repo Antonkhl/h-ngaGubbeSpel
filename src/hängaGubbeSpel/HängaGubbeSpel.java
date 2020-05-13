@@ -150,6 +150,9 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 			    	}
 			    	
 			    	else {
+			    		int charInWordOrSentence = 0;
+			    		
+			    		
 			    		for(int i = 0; i < 50; i++) {
 			    			System.out.println(" ");
 			    		}
@@ -183,7 +186,8 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 			    		System.out.println("Sorry! Men jag vill inte ha några mellanrum mellan ord! Om du vill köra med meningar får du starta om programet och välja meningar istället för ord");
 			    	}
 			    	
-			    	else {  
+			    	else { 
+			    		
 			    		for(int i = 0; i < 50; i++) {
 			    			System.out.println(" ");
 			    		}
@@ -201,11 +205,99 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 			    
 		
 		    public static void preMainGame(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing) {
+		    	
+		    	if (oneOrTwoPlayers == true ) {
+		    		
+		    		if (selfDefining == true) {
+		    			 
+		    			if (sentencesOrWords == true) {
+		    				
+		    			}
+                        if (sentencesOrWords == false) {
+		    				
+		    			}
+		    			
+		    		}
+		    		
+		    		if (selfDefining == false) {
+		    			
+		    			if (sentencesOrWords == true && playerGuessing == true) {
+		    				System.out.println("Nu har du då angett alla inställningar för spelet! Nu ska jag berätta hur spelet kommer köra till för " + secondPlayerName);
+		    				System.out.println("du ska då gissa ett ord i taget, efter varje gissning kommer vi kolla igenom ordet som " + name + " har gett oss");
+		    				System.out.println("Om du skriver in ett fel bokstav kommer delar av ett hängd gubben komma upp på skärmen");
+		    				System.out.println("Om du skriver in ett rätt bokstav kommer rutan med ord som fattas börja fylla in sig och om du har redan gjort fel kommer bilden gå tillbaks ett steg");
+		    				System.out.println("Ditt mål är att gissa ordet. Innan gubben hängs.");
+		    				System.out.println("Du ska gissa på ett ord då, inga meningar");
+		    				System.out.println("Med det säger jag GLHF och vi tar oss vidare till spelet");
+		    				mainGame1(name,true,secondPlayerName,true,false,correctWord,true);
+		    			}
+		    			
+                        if (sentencesOrWords == false && playerGuessing == true) {
+                        	System.out.println("Nu har du då angett alla inställningar för spelet! Nu ska jag berätta hur spelet kommer köra till för " + secondPlayerName);
+		    				System.out.println("du ska då gissa ett ord i taget, efter varje gissning kommer vi kolla igenom meningen som " + name + " har gett oss");
+		    				System.out.println("Om du skriver in ett fel bokstav kommer delar av ett hängd gubben komma upp på skärmen");
+		    				System.out.println("Om du skriver in ett rätt bokstav kommer rutan med ord som fattas börja fylla in sig och om du har redan gjort fel kommer bilden gå tillbaks ett steg");
+		    				System.out.println("Ditt mål är att gissa meningen. Innan gubben hängs.");
+		    				System.out.println("Du ska gissa på ett mening då, inte ord");
+		    				System.out.println("Med det säger jag GLHF och vi tar oss vidare till spelet");
+		    			}
+                        
+                        if (sentencesOrWords == false && playerGuessing == false) {
+                        	System.out.println("Nu har du då angett alla inställningar för spelet! Nu ska jag berätta hur spelet kommer köra till för " + name);
+		    				System.out.println("du ska då gissa ett ord i taget, efter varje gissning kommer vi kolla igenom meningen som " + secondPlayerName + " har gett oss");
+		    				System.out.println("Om du skriver in ett fel bokstav kommer delar av ett hängd gubben komma upp på skärmen");
+		    				System.out.println("Om du skriver in ett rätt bokstav kommer rutan med ord som fattas börja fylla in sig och om du har redan gjort fel kommer bilden gå tillbaks ett steg");
+		    				System.out.println("Ditt mål är att gissa meningen. Innan gubben hängs.");
+		    				System.out.println("Du ska gissa på ett mening då, inte ord");
+		    				System.out.println("Med det säger jag GLHF och vi tar oss vidare till spelet");
+		    			}
+                        
+                        if (sentencesOrWords == true && playerGuessing == false) {
+                        	System.out.println("Nu har du då angett alla inställningar för spelet! Nu ska jag berätta hur spelet kommer köra till för " + name);
+		    				System.out.println("du ska då gissa ett ord i taget, efter varje gissning kommer vi kolla igenom ordet som " + secondPlayerName + " har gett oss");
+		    				System.out.println("Om du skriver in ett fel bokstav kommer delar av ett hängd gubben komma upp på skärmen");
+		    				System.out.println("Om du skriver in ett rätt bokstav kommer rutan med ord som fattas börja fylla in sig och om du har redan gjort fel kommer bilden gå tillbaks ett steg");
+		    				System.out.println("Ditt mål är att gissa ordet. Innan gubben hängs.");
+		    				System.out.println("Du ska gissa på ett ord då, inga meningar");
+		    				System.out.println("Med det säger jag GLHF och vi tar oss vidare till spelet");
+		    			}
+                        
+		    		}
+		    	}
+		    	
+		    	
+		    	
+		    	
+		    	
+                if (oneOrTwoPlayers == false) {
+		    		if (sentencesOrWords == true) {
+		    			
+		    		}
+		    		
+                    if (sentencesOrWords == false) {
+		    			
+		    		}
+		    			
+		    		
+		    	}
+		    	
+		    	
+		    }
+		    
+		    
+		    
+		    public static void mainGame1(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, string progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		    	
+		    	
+		    	
+		    	
+		    }
+		    
+		    
+		    
+		    }
 	    		
 		    	
-		    	
-	    	}
-	
 	
 	
 	
@@ -216,4 +308,4 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	
 	
 	
-}
+
