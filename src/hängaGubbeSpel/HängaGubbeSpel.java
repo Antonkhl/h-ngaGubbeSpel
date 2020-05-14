@@ -2,11 +2,15 @@ package hängaGubbeSpel;
 
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import java.lang.Math;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class HängaGubbeSpel {
+	
 
 public static void main(String[] args) {
-	instruktionsNamn("name");
+	mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0);
 }
 
 
@@ -86,8 +90,25 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	
 	
 	public static void sentencesOrWords(String name) {
-		System.out.println("Ok " + name + " Skulle du vilja gissa på ord eller meningar?");
+		String svar1A = "Ord";
+		String svar1B = "ord";
+		String svar2A = "Mening";
+		String svar2B = "mening";
 		
+		System.out.println("Ok " + name + " Skulle du vilja gissa på ord eller meningar?");
+      
+		Scanner input = new Scanner(System.in);
+		String svar = input.nextLine();
+		
+			   if (svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
+			    	boolean sentencesOrWords = true;
+			    	
+			    }
+			   
+			   if (svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
+			    	boolean sentencesOrWords = true;
+			    	
+			    }
 		
 
 	}
@@ -299,7 +320,46 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    
 		    
 		    
+		    
 		    public static void mainGame1(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		    	int guessed = 0;
+		    	while(guessed < correctWord.length()) {
+			    	System.out.println("ordet är: ");
+			    	for(int i = 0; i < correctWord.length(); i++) {
+			    		System.out.print("_");
+			    	}
+			    	
+			    	System.out.println("Skriv in ett bokstav");
+			       	Scanner input = new Scanner(System.in);
+			    	String c = input.nextLine();
+			    
+			    	boolean b = correctWord.contains(c);
+			    	if(b) {
+			    		  guessed++;
+			    		} else {
+			    		  System.out.println("du gissade ej rätt");
+			    		}
+			    	
+			    	if (guessed >= 0) {
+			    		for (int i = -1; i < correctWord.length(); i++) {
+			    			if (i == -1) {
+			    				System.out.print("[");
+			    			}
+			    			if (i<guessed || i == guessed) {
+			    				System.out.print("=");
+			    			} else {
+			    				System.out.print(" ");
+			    			}
+			    		}
+			    		
+			    	}
+			    	else {
+		    			System.out.println("du har inte gissat på något");
+		    		}
+		    		}
+		    	
+		    	
+		   
 		    	
 		    	
 		    	
@@ -309,6 +369,25 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    	
 		    }
 		    
+            public static void mainGame2(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		    	
+		    }
+            
+            public static void mainGame3(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		    	
+		    }
+            
+            public static void mainGame4(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		    	
+		    }
+            
+            public static void mainGame5(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		    	
+		    }
+            
+            public static void mainGame6(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		    	
+		    }
 		    
 		    
 		    }
