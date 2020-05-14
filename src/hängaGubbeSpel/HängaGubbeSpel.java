@@ -41,6 +41,8 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	
 	if (svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
 		oneOrTwoPlayers = false;
+		sentencesOrWords(name);
+		
 
 	}
 }
@@ -78,7 +80,21 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	    	boolean sentencesOrWords = false;
 	    }
 	    
+	 
+	    
 	}
+	
+	
+	public static void sentencesOrWords(String name) {
+		System.out.println("Ok " + name + " Skulle du vilja gissa på ord eller meningar?");
+		
+		
+
+	}
+	
+	
+	
+	
 	    
 	    public static void selfDefiningWords(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords ) {
 	    	String svar1A = "Själv";
@@ -150,8 +166,6 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 			    	}
 			    	
 			    	else {
-			    		int charInWordOrSentence = 0;
-			    		
 			    		
 			    		for(int i = 0; i < 50; i++) {
 			    			System.out.println(" ");
@@ -187,7 +201,6 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 			    	}
 			    	
 			    	else { 
-			    		
 			    		for(int i = 0; i < 50; i++) {
 			    			System.out.println(" ");
 			    		}
@@ -229,7 +242,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    				System.out.println("Ditt mål är att gissa ordet. Innan gubben hängs.");
 		    				System.out.println("Du ska gissa på ett ord då, inga meningar");
 		    				System.out.println("Med det säger jag GLHF och vi tar oss vidare till spelet");
-		    				mainGame1(name,true,secondPlayerName,true,false,correctWord,true);
+		    				mainGame1(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0);
 		    			}
 		    			
                         if (sentencesOrWords == false && playerGuessing == true) {
@@ -286,7 +299,10 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    
 		    
 		    
-		    public static void mainGame1(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, string progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		    public static void mainGame1(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		    	
+		    	
+		    	
 		    	
 		    	
 		    	
