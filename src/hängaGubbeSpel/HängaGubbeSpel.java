@@ -3,8 +3,8 @@ package hängaGubbeSpel;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.lang.Math;
-import java.util.ArrayList;
 import java.util.Random;
+import java.util.ArrayList;
 
 public class HängaGubbeSpel {
 	
@@ -63,6 +63,8 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		
 	}
 	
+	
+	
 	public static void twoPlayerSentencesOrWords(String name, boolean oneOrTwoPlayers, String secondPlayerName) {
 		String svar1A = "Ord";
 		String svar1B = "ord";
@@ -106,7 +108,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 			    }
 			   
 			   if (svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
-			    	boolean sentencesOrWords = true;
+			    	boolean sentencesOrWords = false;
 			    	
 			    }
 		
@@ -114,9 +116,60 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	}
 	
 	
+	public static void theDegreesOfDifficulty(String name, boolean sentencesOrWords) {
+		int degreeOfDifficulty = 0;
+		
+		if (sentencesOrWords = true) {
+			System.out.println("Ok " + name + " på vilket svårighets grad skulle du vilja gissa ord på?");
+			System.out.println("Det kommer finnas 3 olika svårighetsgrader, 1 = Lätt, 2 = Medium 3 = svårt");
+			System.out.println("Efter att du har valt en, kommer ett av orden slumpas fram. Vilket kommer då bli det ordet du ska gissa på");
+			System.out.println("Med det sagt, vilket svårighetsgrad skulle du vilja gissa på? (1/2/3)");
+			
+			while(degreeOfDifficulty < 1 && degreeOfDifficulty > 3 ) {
+				Scanner input = new Scanner(System.in);
+				degreeOfDifficulty = input.nextInt();
+				
+				if (degreeOfDifficulty>3 || 0 > degreeOfDifficulty  ) {
+					System.out.println("Jag vill ha ett nummer från 1 till 3, inte mer eller mindre!");
+				}
+				else {
+					System.out.println("Ok!");
+				}
+				
+				
+			}
+			
+		}
+		
+		if (sentencesOrWords = false) {
+			System.out.println("Ok " + name + " på vilket svårighets grad skulle du vilja gissa meningar på?");
+			System.out.println("Det kommer finnas 3 olika svårighetsgrader, 1 = Lätt, 2 = Medium 3 = svårt");
+			System.out.println("Efter att du har valt en, kommer ett av meingar slumpas fram. Vilket kommer då bli det ordet du ska gissa på");
+			System.out.println("Med det sagt, vilket svårighetsgrad skulle du vilja gissa på? (1/2/3)");
+			
+			while(degreeOfDifficulty < 1 && degreeOfDifficulty > 3 ) {
+				Scanner input = new Scanner(System.in);
+				degreeOfDifficulty = input.nextInt();
+				
+				if (degreeOfDifficulty>3 || 0>degreeOfDifficulty  ) {
+					System.out.println("Jag vill ha ett nummer från 1 till 3, inte mer eller mindre!");
+				}
+				else {
+					System.out.println("Ok!");
+				}
+				
+				
+			}
+		}
+		
+		
+		
+		
+		
+	}
 	
 	
-	    
+	
 	    public static void selfDefiningWords(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords ) {
 	    	String svar1A = "Själv";
 			String svar1B = "själv";
@@ -322,55 +375,63 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    
 		    
 		    public static void mainGame1(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		    	System.out.println("'''\r\n" + 
+		    			"  +---+\r\n" + 
+		    			"  |   |\r\n" + 
+		    			"      |\r\n" + 
+		    			"      |\r\n" + 
+		    			"      |\r\n" + 
+		    			"      |\r\n" + 
+		    			"=========''', '''");
+		    	
+		    	ArrayList<Character> guessedPos = new ArrayList<Character>();
 		    	int guessed = 0;
+		    	guessedPos.ensureCapacity(correctWord.length());
+		    	
+		    	while(guessedPos.size() < correctWord.length()) {
+		    	    guessedPos.add('a');
+		    	}
+		    	
 		    	while(guessed < correctWord.length()) {
-			    	System.out.println("ordet är: ");
-			    	for(int i = 0; i < correctWord.length(); i++) {
-			    		System.out.print("_");
-			    	}
-			    	
-			    	System.out.println("Skriv in ett bokstav");
-			       	Scanner input = new Scanner(System.in);
-			    	String c = input.nextLine();
-			    
-			    	boolean b = correctWord.contains(c);
-			    	if(b) {
-			    		  guessed++;
-			    		} else {
-			    		  System.out.println("du gissade ej rätt");
-			    		}
-			    	
-			    	if (guessed >= 0) {
-			    		for (int i = -1; i < correctWord.length(); i++) {
-			    			if (i == -1) {
-			    				System.out.print("[");
-			    			}
-			    			if (i<guessed || i == guessed) {
-			    				System.out.print("=");
-			    			} else {
-			    				System.out.print(" ");
-			    			}
-			    		}
-			    		
-			    	}
-			    	else {
-		    			System.out.println("du har inte gissat på något");
-		    		}
-		    		}
+		    	  System.out.println("ordet är: ");
+		    	  for(int i = 0; i < correctWord.length(); i++) {
+		    	    char current = correctWord.charAt(i);
+		    	    if(guessedPos.get(i) == current) {
+		    	    	  System.out.print(current);
+		    	    	} else {
+		    	    	  System.out.print("_");
+		    	    	} 
+		    	  }
+		    	  System.out.print("\n");                  
+		    	  System.out.println("Skriv in ett bokstav");
+		    	  Scanner input = new Scanner(System.in);
+		    	  String c = input.nextLine();
+		    	  
+		    	  if(correctWord.contains(c)) {
+		    	    for(int i = 0; i < correctWord.length(); i++) {
+		    	      if(correctWord.charAt(i) == c.charAt(0)) {
+		    	        guessedPos.set(i, c.charAt(0));
+		    	        guessed++;
+		    	      }
+		    	    }
+		    	  } 
+		    	  
+		    	  else {
+		    	    System.out.println("du gissade ej rätt");
+		    	  }      
+		    	  
+		    	}
+		    	  
 		    	
-		    	
-		   
-		    	
-		    	
-		    	
-		    	
-		    	
-		    	
+		
+
 		    	
 		    }
 		    
             public static void mainGame2(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
 		    	
+              
+            	
 		    }
             
             public static void mainGame3(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
