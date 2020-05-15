@@ -10,7 +10,7 @@ public class HängaGubbeSpel {
 	
 
 public static void main(String[] args) {
-	mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0);
+	mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,0);
 }
 
 
@@ -45,7 +45,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	
 	if (svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
 		oneOrTwoPlayers = false;
-		sentencesOrWords(name);
+		sentencesOrWords(name,false);
 		
 
 	}
@@ -91,7 +91,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	}
 	
 	
-	public static void sentencesOrWords(String name) {
+	public static void sentencesOrWords(String name, boolean oneOrTwoPlayers) {
 		String svar1A = "Ord";
 		String svar1B = "ord";
 		String svar2A = "Mening";
@@ -104,6 +104,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		
 			   if (svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
 			    	boolean sentencesOrWords = true;
+			    	theDegreesOfDifficulty(name,true,false);
 			    	
 			    }
 			   
@@ -116,7 +117,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	}
 	
 	
-	public static void theDegreesOfDifficulty(String name, boolean sentencesOrWords) {
+	public static void theDegreesOfDifficulty(String name, boolean sentencesOrWords, boolean oneOrTwoPlayers) {
 		int degreeOfDifficulty = 0;
 		
 		if (sentencesOrWords = true) {
@@ -134,6 +135,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 				}
 				else {
 					System.out.println("Ok!");
+					ifRandomized(name,true,degreeOfDifficulty);
 				}
 				
 				
@@ -156,12 +158,18 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 				}
 				else {
 					System.out.println("Ok!");
+					ifRandomized(name,false,degreeOfDifficulty,false);
 				}
 				
 				
 			}
 		}
 		
+	
+		
+	}
+	
+	public static void ifRandomized(String name, boolean sentencesOrWords, int degreeOfDifficulty, boolean oneOrTwoPlayers) {
 		
 		
 		
@@ -316,7 +324,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    				System.out.println("Ditt mål är att gissa ordet. Innan gubben hängs.");
 		    				System.out.println("Du ska gissa på ett ord då, inga meningar");
 		    				System.out.println("Med det säger jag GLHF och vi tar oss vidare till spelet");
-		    				mainGame1(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0);
+		    				mainGame1(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0,0);
 		    			}
 		    			
                         if (sentencesOrWords == false && playerGuessing == true) {
@@ -374,18 +382,11 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    
 		    
 		    
-		    public static void mainGame1(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
-		    	System.out.println("'''\r\n" + 
-		    			"  +---+\r\n" + 
-		    			"  |   |\r\n" + 
-		    			"      |\r\n" + 
-		    			"      |\r\n" + 
-		    			"      |\r\n" + 
-		    			"      |\r\n" + 
-		    			"=========''', '''");
-		    	
+		    public static void mainGame1(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft, int wrong) {
+		    
 		    	ArrayList<Character> guessedPos = new ArrayList<Character>();
 		    	int guessed = 0;
+		    	wrong = 0;
 		    	guessedPos.ensureCapacity(correctWord.length());
 		    	
 		    	while(guessedPos.size() < correctWord.length()) {
@@ -408,18 +409,23 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    	  String c = input.nextLine();
 		    	  
 		    	  if(correctWord.contains(c)) {
-		    	    for(int i = 0; i < correctWord.length(); i++) {
-		    	      if(correctWord.charAt(i) == c.charAt(0)) {
-		    	        guessedPos.set(i, c.charAt(0));
-		    	        guessed++;
-		    	      }
-		    	    }
-		    	  } 
-		    	  
-		    	  else {
-		    	    System.out.println("du gissade ej rätt");
-		    	  }      
-		    	  
+	                    for(int i = 0; i < correctWord.length(); i++) {
+	                        if(correctWord.charAt(i) == c.charAt(0)) {
+
+	                            if(wrong != 0) {
+	                                wrong--; 
+	                                }
+
+	                              guessedPos.set(i, c.charAt(0));
+	                              guessed++;
+	                              mainGameArt(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0,wrong);
+	                            } else {
+	                                    System.out.println("du gissade ej rätt");
+	                                    wrong++;
+	  	                              mainGameArt(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0,wrong);
+	                                  }
+	                    }
+	                  }
 		    	}
 		    	  
 		    	
@@ -428,34 +434,100 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    	
 		    }
 		    
-            public static void mainGame2(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
-		    	
-              
-            	
-		    }
-            
-            public static void mainGame3(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
-		    	
-		    }
-            
-            public static void mainGame4(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
-		    	
-		    }
-            
-            public static void mainGame5(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
-		    	
-		    }
-            
-            public static void mainGame6(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
-		    	
-		    }
 		    
+		    public static void mainGameArt(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft, int wrong) {
+		    	
 		    
-		    }
+		    	if(wrong == 0) {
+		    		System.out.println("'''\r\n" + 
+		    				"  +---+\r\n" + 
+		    				"  |   |\r\n" + 
+		    				"      |\r\n" + 
+		    				"      |\r\n" + 
+		    				"      |\r\n" + 
+		    				"      |\r\n" + 
+		    				"=========''', '''");
+		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    	}
+		    	
+		    	if(wrong == 1) {
+		    		System.out.println("+---+\r\n" + 
+		    				"  |   |\r\n" + 
+		    				"  O   |\r\n" + 
+		    				"      |\r\n" + 
+		    				"      |\r\n" + 
+		    				"      |\r\n" + 
+		    				"=========''', '''");
+		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    	}
+		    	
+		    	if(wrong == 2) {
+		    		System.out.println("+---+\r\n" + 
+		    				"  |   |\r\n" + 
+		    				"  O   |\r\n" + 
+		    				"  |   |\r\n" + 
+		    				"      |\r\n" + 
+		    				"      |\r\n" + 
+		    				"=========''', '''");
+		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    	}
+		    	
+		    	if(wrong == 3) {
+		    		System.out.println("+---+\r\n" + 
+		    				"  |   |\r\n" + 
+		    				"  O   |\r\n" + 
+		    				" /|   |\r\n" + 
+		    				"      |\r\n" + 
+		    				"      |\r\n" + 
+		    				"=========''', '''");
+		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    	}
+		    	
+		    	if(wrong == 4) {
+		    		System.out.println("+---+\r\n" + 
+		    				"  |   |\r\n" + 
+		    				"  O   |\r\n" + 
+		    				" /|\\  |\r\n" + 
+		    				"      |\r\n" + 
+		    				"      |\r\n" + 
+		    				"=========''', '''");
+		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    	}
+		    	
+		    	if(wrong == 5) {
+		    		System.out.println("+---+\r\n" + 
+		    				"  |   |\r\n" + 
+		    				"  O   |\r\n" + 
+		    				" /|\\  |\r\n" + 
+		    				" /    |\r\n" + 
+		    				"      |\r\n" + 
+		    				"=========''', '''");
+		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    	}
+		    	
+		    	if(wrong == 6) {
+		    		System.out.println("+---+\r\n" + 
+		    				"  |   |\r\n" + 
+		    				"  O   |\r\n" + 
+		    				" /|\\  |\r\n" + 
+		    				" / \\  |\r\n" + 
+		    				"      |\r\n" + 
+		    				"========='''");
+		    		System.out.println("Gubben hängdes :(");
+		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    	}
+		    	
+		    	
+		    	
+		    	
+		    	
+}
+		    
+            
 	    		
 		    	
 	
-	
+}
 	
 	
 	
