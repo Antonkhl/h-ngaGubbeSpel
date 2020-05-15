@@ -5,11 +5,18 @@ import java.util.concurrent.TimeUnit;
 import java.lang.Math;
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class HängaGubbeSpel {
-	
+    static int guessed;
+	static ArrayList<Character> guessedPos;
+	static int wrong; 
 
 public static void main(String[] args) {
+	guessedPos = new ArrayList<Character>();
+	guessed = 0;
+	wrong = 0;
 	mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,0);
 }
 
@@ -135,7 +142,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 				}
 				else {
 					System.out.println("Ok!");
-					ifRandomized(name,true,degreeOfDifficulty);
+					ifRandomized(name,true,degreeOfDifficulty,false);
 				}
 				
 				
@@ -171,6 +178,80 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	
 	public static void ifRandomized(String name, boolean sentencesOrWords, int degreeOfDifficulty, boolean oneOrTwoPlayers) {
 		
+		if(sentencesOrWords == true) {
+			if (degreeOfDifficulty == 1) {
+				ArrayList<String> ordNivå1 = new ArrayList<>();
+				
+				ordNivå1.add("frankrike");
+				ordNivå1.add("göteborg");
+				ordNivå1.add("juni");
+				ordNivå1.add("duva");
+				ordNivå1.add("tiger");
+				ordNivå1.add("jakarta");
+				ordNivå1.add("karlskoga");
+				ordNivå1.add("fjällämmel");
+				ordNivå1.add("maj");
+				ordNivå1.add("gröngölning");
+				Collections.shuffle(ordNivå1);
+				
+				String correctWord = ordNivå1.get(0);
+				
+			}
+			
+            if (degreeOfDifficulty == 2) {
+            	ArrayList<String> ordNivå2 = new ArrayList<>();
+           
+            	ordNivå2.add("dominica");
+				ordNivå2.add("riga");
+				ordNivå2.add("västervik");
+				ordNivå2.add("lördag");
+				ordNivå2.add("entita");
+				ordNivå2.add("hegemoni");
+				ordNivå2.add("renegat");
+				ordNivå2.add("anomali");
+				ordNivå2.add("impertinent");
+				ordNivå2.add("patgernalism");
+				Collections.shuffle(ordNivå2);
+				
+				String correctWord = ordNivå2.get(0);
+            	
+			}
+            
+            if (degreeOfDifficulty == 3) {
+            	ArrayList<String> ordNivå3 = new ArrayList<>();
+                
+            	ordNivå3.add("mindervärdighetskomplex");
+				ordNivå3.add("crackpundare");
+				ordNivå3.add("flaggstångsknoppsmålare");
+				ordNivå3.add("lörd");
+				ordNivå3.add("entita");
+				ordNivå3.add("hegemoni");
+				ordNivå3.add("renegat");
+				ordNivå3.add("anomali");
+				ordNivå3.add("impertinent");
+				ordNivå3.add("patgernalism");
+				Collections.shuffle(ordNivå3);
+				
+				String correctWord = ordNivå3.get(0);
+			}
+			
+			
+		}
+		
+		
+        if(sentencesOrWords == false) {
+            if (degreeOfDifficulty == 1) {
+				
+			}
+			
+            if (degreeOfDifficulty == 2) {
+				
+			}
+            
+            if (degreeOfDifficulty == 3) {
+				
+			}
+		}
 		
 		
 		
@@ -383,10 +464,6 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    
 		    
 		    public static void mainGame1(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft, int wrong) {
-		    
-		    	ArrayList<Character> guessedPos = new ArrayList<Character>();
-		    	int guessed = 0;
-		    	wrong = 0;
 		    	guessedPos.ensureCapacity(correctWord.length());
 		    	
 		    	while(guessedPos.size() < correctWord.length()) {
@@ -418,11 +495,11 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 
 	                              guessedPos.set(i, c.charAt(0));
 	                              guessed++;
-	                              mainGameArt(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0,wrong);
+	                              mainGameArt(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0);
 	                            } else {
 	                                    System.out.println("du gissade ej rätt");
 	                                    wrong++;
-	  	                              mainGameArt(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0,wrong);
+	  	                              mainGameArt(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0);
 	                                  }
 	                    }
 	                  }
@@ -435,8 +512,45 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    }
 		    
 		    
-		    public static void mainGameArt(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft, int wrong) {
-		    	
+		    public static void mainGame2(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
+		       while(guessed < correctWord.length()) {
+		    	  System.out.println("ordet är: ");
+		    	  for(int i = 0; i < correctWord.length(); i++) {
+		    	    char current = correctWord.charAt(i);
+		    	    if(guessedPos.get(i) == current) {
+		    	    	  System.out.print(current);
+		    	    	} else {
+		    	    	  System.out.print("_");
+		    	    	} 
+		    	  }
+		    	  System.out.print("\n");                  
+		    	  System.out.println("Skriv in ett bokstav");
+		    	  Scanner input = new Scanner(System.in);
+		    	  String c = input.nextLine();
+		    	  
+		    	  if(correctWord.contains(c)) {
+	                    for(int i = 0; i < correctWord.length(); i++) {
+	                        if(correctWord.charAt(i) == c.charAt(0)) {
+
+	                            if(wrong != 0) {
+	                                wrong--; 
+	                                }
+
+	                              guessedPos.set(i, c.charAt(0));
+	                              guessed++;
+	                              mainGameArt(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0);
+	                            } else {
+	                                    System.out.println("du gissade ej rätt");
+	                                    wrong++;
+	  	                              mainGameArt(name,true,secondPlayerName,true,false,correctWord,true,correctWord,0,0,0);
+	                                  }
+	                    }
+	                  }
+		    	}
+		    }
+		    
+		    
+		    public static void mainGameArt(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft) {
 		    
 		    	if(wrong == 0) {
 		    		System.out.println("'''\r\n" + 
@@ -447,7 +561,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    				"      |\r\n" + 
 		    				"      |\r\n" + 
 		    				"=========''', '''");
-		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    		mainGame2("anton",true,"anton2",true,true,correctWord,true,"progress",0,0,0);
 		    	}
 		    	
 		    	if(wrong == 1) {
@@ -458,7 +572,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    				"      |\r\n" + 
 		    				"      |\r\n" + 
 		    				"=========''', '''");
-		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    		mainGame2("anton",true,"anton2",true,true,correctWord,true,"progress",0,0,0);
 		    	}
 		    	
 		    	if(wrong == 2) {
@@ -469,7 +583,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    				"      |\r\n" + 
 		    				"      |\r\n" + 
 		    				"=========''', '''");
-		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    		mainGame2("anton",true,"anton2",true,true,correctWord,true,"progress",0,0,0);
 		    	}
 		    	
 		    	if(wrong == 3) {
@@ -480,7 +594,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    				"      |\r\n" + 
 		    				"      |\r\n" + 
 		    				"=========''', '''");
-		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    		mainGame2("anton",true,"anton2",true,true,correctWord,true,"progress",0,0,0);
 		    	}
 		    	
 		    	if(wrong == 4) {
@@ -491,7 +605,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    				"      |\r\n" + 
 		    				"      |\r\n" + 
 		    				"=========''', '''");
-		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    		mainGame2("anton",true,"anton2",true,true,correctWord,true,"progress",0,0,0);
 		    	}
 		    	
 		    	if(wrong == 5) {
@@ -502,7 +616,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    				" /    |\r\n" + 
 		    				"      |\r\n" + 
 		    				"=========''', '''");
-		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    		mainGame2("anton",true,"anton2",true,true,correctWord,true,"progress",0,0,0);
 		    	}
 		    	
 		    	if(wrong == 6) {
@@ -514,8 +628,11 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    				"      |\r\n" + 
 		    				"========='''");
 		    		System.out.println("Gubben hängdes :(");
-		    		mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,wrong);
+		    		mainGame2("anton",true,"anton2",true,true,correctWord,true,"progress",0,0,0);
 		    	}
+		    	
+		    	
+		    	
 		    	
 		    	
 		    	
@@ -536,4 +653,3 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	
 	
 	
-
