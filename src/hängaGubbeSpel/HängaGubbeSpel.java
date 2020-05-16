@@ -17,7 +17,8 @@ public static void main(String[] args) {
 	guessedPos = new ArrayList<Character>();
 	guessed = 0;
 	wrong = 0;
-	mainGame1("anton",true,"anton2",true,true,"supercool",true,"progress",0,0,0,0);
+	ifNotRandomized("anton",true,true,"anton2",1);
+	
 }
 
 
@@ -282,6 +283,84 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	
 	
 	public static void ifNotRandomized(String name, boolean sentencesOrWords, boolean oneOrTwoPlayers, String secondPlayerName, int degreeOfDifficulty) {
+		String svar1A = name;
+    	String svar1B = name.substring(0, 1).toUpperCase() + name.substring(1);
+    	String svar2A = secondPlayerName;
+    	String svar2B = secondPlayerName.substring(0, 1).toUpperCase() + secondPlayerName.substring(1);
+		
+		
+		if (sentencesOrWords = true) {
+			System.out.println("Ok, " + name + " och " + secondPlayerName + " så ni valde att själva välja ett ord från ordlistan i svårighets graden " + degreeOfDifficulty);
+			System.out.println("Nu skulle jag vilja att ni väljer en som ska gissa, och en som ska välja ett ord som den andra ska gissa på");
+			System.out.println("Jag ger er 30 sekunder att välja, sedan får ni inputa era svar!");
+			System.out.println("timern kör igång..... NU!");
+			
+			try {
+		    	TimeUnit.SECONDS.sleep(30);
+
+		    	}
+		    	
+		    	catch(Exception e) {
+		    		System.out.println("något gick fel");
+		    	}
+			
+			System.out.println("Ok! Så vem ska gissa på orden? ( " + name + " / " + secondPlayerName + " ) ");
+			Scanner input = new Scanner(System.in);
+			String svar = input.nextLine();
+			
+			if(svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
+				System.out.println("Ok! Innan jag vissar alla dinna val kommer jag ge " + secondPlayerName + " 20 sekunder att kolla bort eller något, så " + secondPlayerName + " kan ej fuska!");
+				System.out.println("Timern börjar........ NU");
+				try {
+			    	TimeUnit.SECONDS.sleep(20);
+
+			    	}
+			    	
+			    	catch(Exception e) {
+			    		System.out.println("något gick fel");
+			    	}
+				
+				System.out.println("Nu antar jag att " + secondPlayerName + " är borta");
+				
+				if (degreeOfDifficulty == 1) {
+					ArrayList<String> ordNivå1 = new ArrayList<>();
+					ordNivå1.add("1. frankrike");
+					ordNivå1.add("2. göteborg");
+					ordNivå1.add("3. juni");
+					ordNivå1.add("4. duva");
+					ordNivå1.add("5. tiger");
+					ordNivå1.add("6. jakarta");
+					ordNivå1.add("7. karlskoga");
+					ordNivå1.add("8. fjällämmel");
+					ordNivå1.add("9. maj");
+					ordNivå1.add("10. gröngölning");
+					
+					System.out.println("Dina val är: ");
+					System.out.println(ordNivå1);
+					
+					
+
+
+				}
+				
+	            if (degreeOfDifficulty == 2) {
+					
+				}
+	            
+                if (degreeOfDifficulty == 3) {
+					
+				}
+				
+				
+			}
+			
+			
+			
+		}
+		
+		if (sentencesOrWords = false) {
+			
+		}
 		
 	}
 	
