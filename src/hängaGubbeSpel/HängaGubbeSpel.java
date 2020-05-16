@@ -111,7 +111,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		
 			   if (svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
 			    	boolean sentencesOrWords = true;
-			    	theDegreesOfDifficulty(name,true,false);
+			    	theDegreesOfDifficulty(name,true,false,"nothing");
 			    	
 			    }
 			   
@@ -124,8 +124,11 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	}
 	
 	
-	public static void theDegreesOfDifficulty(String name, boolean sentencesOrWords, boolean oneOrTwoPlayers) {
+	public static void theDegreesOfDifficulty(String name, boolean sentencesOrWords, boolean oneOrTwoPlayers, String secondPlayerName) {
 		int degreeOfDifficulty = 0;
+		
+		if (oneOrTwoPlayers = true) {
+			
 		
 		if (sentencesOrWords = true) {
 			System.out.println("Ok " + name + " på vilket svårighets grad skulle du vilja gissa ord på?");
@@ -171,10 +174,61 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 				
 			}
 		}
+		}
+		
+		if (oneOrTwoPlayers = false) {
+			
+			if (sentencesOrWords = true) {
+				System.out.println("Ok " + name + " och " + secondPlayerName + "På vilken svårighetsgrad skulle ni vilja gissa på? " );
+				System.out.println("Det kommer finnas 3 olika svårighetsgrader, 1 = Lätt, 2 = Medium 3 = svårt");
+				System.out.println("Efter att du har valt en, kommer ni välja om ni vill själva välja ett ord eller slumpa ett ord fram. Vilket kommer då bli det ordet ni/en av er ska gissa på");
+				System.out.println("Med det sagt, vilket svårighetsgrad skulle du vilja gissa på? (1/2/3)");
+				
+				while(degreeOfDifficulty >= 1 && degreeOfDifficulty <= 3 ) {
+					Scanner input = new Scanner(System.in);
+					degreeOfDifficulty = input.nextInt();
+					
+					if (degreeOfDifficulty>3 || 0>degreeOfDifficulty  ) {
+						System.out.println("Jag vill ha ett nummer från 1 till 3, inte mer eller mindre!");
+					}
+					else {
+						System.out.println("Ok!");
+					}
+					
+					
+				}
+				
+			}
+			
+			if (sentencesOrWords = false) {
+				System.out.println("Ok " + name + " och " + secondPlayerName + "På vilken svårighetsgrad skulle ni vilja gissa på? " );
+				System.out.println("Det kommer finnas 3 olika svårighetsgrader, 1 = Lätt, 2 = Medium 3 = svårt");
+				System.out.println("Efter att du har valt en, kommer ni välja om ni vill själva välja ett mening eller slumpa ett mening fram. Vilket kommer då bli det meniget ni/en av er ska gissa på");
+				System.out.println("Med det sagt, vilket svårighetsgrad skulle du vilja gissa på? (1/2/3)");
+				
+				while(degreeOfDifficulty >= 1 && degreeOfDifficulty <= 3 ) {
+					Scanner input = new Scanner(System.in);
+					degreeOfDifficulty = input.nextInt();
+					
+					if (degreeOfDifficulty>3 || 0>degreeOfDifficulty  ) {
+						System.out.println("Jag vill ha ett nummer från 1 till 3, inte mer eller mindre!");
+					}
+					else {
+						System.out.println("Ok!");
+					}
+					
+					
+				}
+			}
+			
+	
+		}
 		
 	
 		
 	}
+	
+	
 	
 	public static void ifRandomized(String name, boolean sentencesOrWords, int degreeOfDifficulty, boolean oneOrTwoPlayers) {
 		
@@ -195,6 +249,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 				Collections.shuffle(ordNivå1);
 				
 				String correctWord = ordNivå1.get(0);
+				preMainGame(name,false,"nothing",true,false,correctWord,false);
 				
 			}
 			
@@ -214,6 +269,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 				Collections.shuffle(ordNivå2);
 				
 				String correctWord = ordNivå2.get(0);
+				preMainGame(name,false,"nothing",true,false,correctWord,false);
             	
 			}
             
@@ -233,6 +289,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 				Collections.shuffle(ordNivå3);
 				
 				String correctWord = ordNivå3.get(0);
+				preMainGame(name,false,"nothing",true,false,correctWord,false);
 			}
 			
 			
@@ -241,15 +298,60 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		
         if(sentencesOrWords == false) {
             if (degreeOfDifficulty == 1) {
+              ArrayList<String> meningNivå1 = new ArrayList<>();
+                
+              meningNivå1.add("ju fler Desto Bättre");
+              meningNivå1.add("kan du öppna dörren");
+              meningNivå1.add("khalil har en katt");
+              meningNivå1.add("sara studerar i skolan");
+              meningNivå1.add("amela och Adam har två barn");
+              meningNivå1.add("peter har tre pojkar");
+              meningNivå1.add("titti talar i telefon med syster tove");
+              meningNivå1.add("ylva är lycklig hon har en ny cykel");
+              meningNivå1.add("han heter billy");
+              meningNivå1.add("att skriva en adress");
+				Collections.shuffle(meningNivå1);
 				
+				String correctSentence = meningNivå1.get(0);
+				preMainGame(name,false,"nothing",false,false,correctSentence,false);
 			}
 			
             if (degreeOfDifficulty == 2) {
-				
+            	 ArrayList<String> meningNivå2 = new ArrayList<>();
+                 
+                 meningNivå2.add("det är så tomt för att det är helgen innan löning");
+                 meningNivå2.add("det är helt sjukt att det är billigare att flyga");
+                 meningNivå2.add("jag måste skynda mig, jag har bokat en tvättid");
+                 meningNivå2.add("varför har du inte pluggat till läkare");
+                 meningNivå2.add("de har en jättebra restaurang");
+                 meningNivå2.add("jag har läst tyska i skolan, men jag kan ingenting");
+                 meningNivå2.add("Så göra man på kontinenten");
+                 meningNivå2.add("Jag gillar finlandssvenska");
+                 meningNivå2.add("Vad är egentligen det nya söder");
+                 meningNivå2.add("Jag känner jättemånga som har träffats på nätet");
+   				Collections.shuffle(meningNivå2);
+   				
+   				String correctSentence = meningNivå2.get(0);
+   				preMainGame(name,false,"nothing",false,false,correctSentence,false);
 			}
             
             if (degreeOfDifficulty == 3) {
-				
+            	ArrayList<String> meningNivå3 = new ArrayList<>();
+                
+                meningNivå3.add("i en värld där smala väger tyngst övervikt som en medial konstruktion");
+                meningNivå3.add("nej över huvud taget inte En kvantitativ och kvalitativ analys av diskreta och indirekta översättningsstrategier i de sveska översättningarna av två minimalitiska danska romaner");
+                meningNivå3.add("är alla inkluderade en analys av förslag till svenska kyrkans kyrkohandbok ur ett andraspråksperspektiv");
+                meningNivå3.add("svenska som andraspråk och svenska en jämförande av ämnena");
+                meningNivå3.add("prepositionsbruk hos personer med annat hemspråk än svenska");
+                meningNivå3.add("klädesborste eller skohorn en språklig och innehållslig jämförelse av jan guillous");
+                meningNivå3.add("utländska läkares ordförstålsen");
+                meningNivå3.add("en studie av bestämmelsens inverkan på offentlighetsprincipen");
+                meningNivå3.add("i det förgångna bär oupplösligt mödan");
+                meningNivå3.add("börda jag fåfäng sökt att lasta av");
+  				Collections.shuffle(meningNivå3);
+  				
+  				String correctSentence = meningNivå3.get(0);
+  				preMainGame(name,false,"nothing",false,false,correctSentence,false);
 			}
 		}
 		
@@ -281,6 +383,9 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    }
 		    
 	    }
+	    
+	    
+	    
 	    	
 		    
 		    public static void defineTheWord(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, boolean playerGuessing) {
