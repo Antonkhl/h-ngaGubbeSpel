@@ -762,13 +762,8 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                      if(correctWord.charAt(i) == c.charAt(0)) {
 	                        guessedPos.set(i, c.charAt(0));
 	                        guessed++;
-	                        if(0>wrong) { 
-		                          wrong = 0;
-		                     
-		                        }
-	                        
-	                        if(wrong == 0) { 
-		                          wrong = 0;
+	                      
+	                        if(wrong < 1) {  
 		                          System.out.print("+---+\r\n" + 
 			                          		"  |   |\r\n" + 
 			                          		"      |\r\n" + 
@@ -776,6 +771,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 			                          		"      |\r\n" + 
 			                          		"      |\r\n" + 
 			                          		"=========''', '''");
+		                          System.out.println(wrong);
 		                        }
 	                       
 	                        if(wrong == 1) { 
@@ -786,6 +782,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		                          		"      |\r\n" + 
 		                          		"      |\r\n" + 
 		                          		"=========''', '''");
+		                          System.out.println(wrong);
 		                        }
 	                        
 	                        if(wrong == 2) { 
@@ -796,6 +793,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		                          		"      |\r\n" + 
 		                          		"      |\r\n" + 
 		                          		"=========''', ''");
+		                          System.out.println(wrong);
 		                        }
 	                        if(wrong == 3) { 
 		                          System.out.print("+---+\r\n" + 
@@ -805,6 +803,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		                          		"      |\r\n" + 
 		                          		"      |\r\n" + 
 		                          		"=========''', '''");
+		                          System.out.println(wrong);
 		                        }
 	                        
 	                        if(wrong == 4) {
@@ -815,6 +814,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                        			"      |\r\n" + 
 	                        			"      |\r\n" + 
 	                        			"=========''', '''");
+	                        	 System.out.println(wrong);
 	                        }
 	                        if(wrong == 5) {
 	                        	System.out.println(" +---+\r\n" + 
@@ -824,7 +824,8 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                        			" /    |\r\n" + 
 	                        			"      |\r\n" + 
 	                        			"=========''', '''");
-	                        }
+	                        	 System.out.println(wrong);
+	                        		                        }
 	                        
 	                        if(wrong == 6) {
 	                        	System.out.println(" +---+\r\n" + 
@@ -835,14 +836,95 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                        			"      |\r\n" + 
 	                        			"========='''");
 	                        	System.out.println("Gubben hängdes :(");
+	                        	 System.out.println(wrong);
 	                        }
 	                        wrong--;
 	                      }
+	                      
 	                    } 
 		    	  }
 	                    else {
 	                     System.out.println("Du svarade fel!");
-	                      wrong++;
+	                      
+	                     
+	                     if(wrong < 0) {  
+	                          System.out.print("+---+\r\n" + 
+		                          		"  |   |\r\n" + 
+		                          		"      |\r\n" + 
+		                          		"      |\r\n" + 
+		                          		"      |\r\n" + 
+		                          		"      |\r\n" + 
+		                          		"=========''', '''");
+	                          System.out.println(wrong);
+	                        }
+                        
+                        if(wrong == 1) { 
+	                          System.out.print("+---+\r\n" + 
+	                          		"  |   |\r\n" + 
+	                          		"  O   |\r\n" + 
+	                          		"      |\r\n" + 
+	                          		"      |\r\n" + 
+	                          		"      |\r\n" + 
+	                          		"=========''', '''");
+	                          System.out.println(wrong);
+	                        }
+                        System.out.println(wrong);
+                        
+                        if(wrong == 2) { 
+	                          System.out.print("+---+\r\n" + 
+	                          		"  |   |\r\n" + 
+	                          		"  O   |\r\n" + 
+	                          		"  |   |\r\n" + 
+	                          		"      |\r\n" + 
+	                          		"      |\r\n" + 
+	                          		"=========''', ''");
+	                          System.out.println(wrong);
+	                        }
+                        if(wrong == 3) { 
+	                          System.out.print("+---+\r\n" + 
+	                          		"  |   |\r\n" + 
+	                          		"  O   |\r\n" + 
+	                          		" /|   |\r\n" + 
+	                          		"      |\r\n" + 
+	                          		"      |\r\n" + 
+	                          		"=========''', '''");
+	                          System.out.println(wrong);
+	                        }
+                        
+                        if(wrong == 4) {
+                        	System.out.println("+---+\r\n" + 
+                        			"  |   |\r\n" + 
+                        			"  O   |\r\n" + 
+                        			" /|\\  |\r\n" + 
+                        			"      |\r\n" + 
+                        			"      |\r\n" + 
+                        			"=========''', '''");
+                        	 System.out.println(wrong);
+                        }
+                        if(wrong == 5) {
+                        	System.out.println(" +---+\r\n" + 
+                        			"  |   |\r\n" + 
+                        			"  O   |\r\n" + 
+                        			" /|\\  |\r\n" + 
+                        			" /    |\r\n" + 
+                        			"      |\r\n" + 
+                        			"=========''', '''");
+                        	 System.out.println(wrong);
+                        }
+                        
+                        if(wrong == 6) {
+                        	System.out.println(" +---+\r\n" + 
+                        			"  |   |\r\n" + 
+                        			"  O   |\r\n" + 
+                        			" /|\\  |\r\n" + 
+                        			" / \\  |\r\n" + 
+                        			"      |\r\n" + 
+                        			"========='''");
+                        	System.out.println("Gubben hängdes :(");
+                        	 System.out.println(wrong);
+                        }
+                        wrong++;
+                        
 	                    }                
 		    	  
 		    	}
