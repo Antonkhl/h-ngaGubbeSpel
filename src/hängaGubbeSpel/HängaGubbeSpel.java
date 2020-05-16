@@ -969,7 +969,31 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    					
 		    				}
                             if(playerGuessing = false) {
+                            	System.out.println("Grattis!");
+		    					System.out.println("Du van och gissade att ordet var " + correctWord + " som " + secondPlayerName + " definerade för oss!");
 		    					
+		    					System.out.print("\n"); 
+		    					System.out.println("Det tog dig: ");
+		    					System.out.print("\n"); 
+		    					int totalAwnsers = wrongAnswers+rightAnswers;
+		    					System.out.println("Totala försök: " + totalAwnsers);
+		    					System.out.println("Fel svar: " + wrongAnswers);
+		    					System.out.println("Rätt svar: " + rightAnswers);
+		    					System.out.println("Du hade: " + triesLeft + " försök kvar");
+		    					
+		    					System.out.print("\n"); 
+		    					System.out.println("Dina instälningar var:");
+		    					System.out.print("\n"); 
+		    					
+		    					System.out.println("En/två-spelarsläge: Två");
+		    					if(sentencesOrWords = true) {
+		    						System.out.println("Ord/meningar: Ord ");
+		    					}
+		    					if(sentencesOrWords = false) {
+		    						System.out.println("Ord/meningar: Meningar");
+		    					}
+		    					System.out.println("Definerad av: " + secondPlayerName);
+		    					System.out.println("Gissat fram av: " + name);
 		    				}
 		    			}
 		    			if(selfDefining = true) {
@@ -990,7 +1014,32 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    	
 		    }
 		    
+		    public static void restartOrNot(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft, int wrong, int degreeOfDifficulty, boolean wonOrNot ) {
+		    	String svar1A = "Igen";
+		        String svar1B = "igen";
+		        String svar2A = "avsluta";
+		        String svar2B = "Avsluta";
+		    	
+		    	System.out.println("Nu, är spelet över, men vill ni avsluta spelet eller köra igen? (igen/avsluta)");
+		    	
+		    	Scanner input = new Scanner(System.in);
+		    	String svar = input.nextLine();
+		    	
+		    	if(svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
+		    		System.out.println("Ok!");
+		    	}
+		    	
+		    	if(svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
+		    		System.out.println("Ok! Hejdå!");
+		    		 System.exit(0);
+		    	}
+		    	
+		    }
 		    
+		    public static void restartButAtWhatPoint(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft, int wrong, int degreeOfDifficulty, boolean wonOrNot ) {
+		    	
+		    	
+		    }
 		 
 		    	
 		    	
