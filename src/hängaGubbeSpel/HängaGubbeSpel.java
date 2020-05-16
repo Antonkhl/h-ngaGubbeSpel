@@ -771,7 +771,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 			                          		"      |\r\n" + 
 			                          		"      |\r\n" + 
 			                          		"=========''', '''");
-		                          System.out.println(wrong);
+		                         
 		                        }
 	                       
 	                        if(wrong == 1) { 
@@ -782,7 +782,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		                          		"      |\r\n" + 
 		                          		"      |\r\n" + 
 		                          		"=========''', '''");
-		                          System.out.println(wrong);
+		                          
 		                        }
 	                        
 	                        if(wrong == 2) { 
@@ -793,7 +793,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		                          		"      |\r\n" + 
 		                          		"      |\r\n" + 
 		                          		"=========''', ''");
-		                          System.out.println(wrong);
+		                          
 		                        }
 	                        if(wrong == 3) { 
 		                          System.out.print("+---+\r\n" + 
@@ -803,7 +803,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		                          		"      |\r\n" + 
 		                          		"      |\r\n" + 
 		                          		"=========''', '''");
-		                          System.out.println(wrong);
+		                          
 		                        }
 	                        
 	                        if(wrong == 4) {
@@ -814,7 +814,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                        			"      |\r\n" + 
 	                        			"      |\r\n" + 
 	                        			"=========''', '''");
-	                        	 System.out.println(wrong);
+	                        
 	                        }
 	                        if(wrong == 5) {
 	                        	System.out.println(" +---+\r\n" + 
@@ -824,7 +824,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                        			" /    |\r\n" + 
 	                        			"      |\r\n" + 
 	                        			"=========''', '''");
-	                        	 System.out.println(wrong);
+	                        	
 	                        		                        }
 	                        
 	                        if(wrong == 6) {
@@ -836,7 +836,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                        			"      |\r\n" + 
 	                        			"========='''");
 	                        	System.out.println("Gubben hängdes :(");
-	                        	 System.out.println(wrong);
+	                        	 
 	                        }
 	                        wrong--;
 	                      }
@@ -855,7 +855,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		                          		"      |\r\n" + 
 		                          		"      |\r\n" + 
 		                          		"=========''', '''");
-	                          System.out.println(wrong);
+	                          
 	                        }
                         
                         if(wrong == 1) { 
@@ -866,7 +866,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                          		"      |\r\n" + 
 	                          		"      |\r\n" + 
 	                          		"=========''', '''");
-	                          System.out.println(wrong);
+	                         
 	                        }
                         System.out.println(wrong);
                         
@@ -878,7 +878,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                          		"      |\r\n" + 
 	                          		"      |\r\n" + 
 	                          		"=========''', ''");
-	                          System.out.println(wrong);
+	                         
 	                        }
                         if(wrong == 3) { 
 	                          System.out.print("+---+\r\n" + 
@@ -888,7 +888,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                          		"      |\r\n" + 
 	                          		"      |\r\n" + 
 	                          		"=========''', '''");
-	                          System.out.println(wrong);
+	                        
 	                        }
                         
                         if(wrong == 4) {
@@ -899,7 +899,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
                         			"      |\r\n" + 
                         			"      |\r\n" + 
                         			"=========''', '''");
-                        	 System.out.println(wrong);
+                        	
                         }
                         if(wrong == 5) {
                         	System.out.println(" +---+\r\n" + 
@@ -909,7 +909,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
                         			" /    |\r\n" + 
                         			"      |\r\n" + 
                         			"=========''', '''");
-                        	 System.out.println(wrong);
+                        	
                         }
                         
                         if(wrong == 6) {
@@ -921,13 +921,73 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
                         			"      |\r\n" + 
                         			"========='''");
                         	System.out.println("Gubben hängdes :(");
-                        	 System.out.println(wrong);
+                        	
                         }
                         wrong++;
                         
 	                    }                
 		    	  
 		    	}
+		    }
+		    
+		    
+		    public static void feedback(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft, int wrong, int degreeOfDifficulty, boolean wonOrNot ) {
+		    	
+		    	if(wonOrNot = true) {
+		    		if (oneOrTwoPlayers = true) {
+		    			if(selfDefining = false) {
+		    				if(playerGuessing = true) {
+		    					System.out.println("Grattis!");
+		    					System.out.println("Du van och gissade att ordet var " + correctWord + " som " + name + " definerade för oss!");
+		    					
+		    					System.out.print("\n"); 
+		    					System.out.println("Det tog dig: ");
+		    					System.out.print("\n"); 
+		    					int totalAwnsers = wrongAnswers+rightAnswers;
+		    					System.out.println("Totala försök: " + totalAwnsers);
+		    					System.out.println("Fel svar: " + wrongAnswers);
+		    					System.out.println("Rätt svar: " + rightAnswers);
+		    					System.out.println("Du hade: " + triesLeft + " försök kvar");
+		    					
+		    					System.out.print("\n"); 
+		    					System.out.println("Dina instälningar var:");
+		    					System.out.print("\n"); 
+		    					
+		    					System.out.println("En/två-spelarsläge: Två");
+		    					if(sentencesOrWords = true) {
+		    						System.out.println("Ord/meningar: Ord ");
+		    					}
+		    					if(sentencesOrWords = false) {
+		    						System.out.println("Ord/meningar: Meningar");
+		    					}
+		    					System.out.println("Definerad av: " + name);
+		    					System.out.println("Gissat fram av: " + secondPlayerName);
+		    					
+		    					
+		    					
+		    					
+		    					
+		    				}
+                            if(playerGuessing = false) {
+		    					
+		    				}
+		    			}
+		    			if(selfDefining = true) {
+		    				
+		    			}
+		    		}
+		    		if (oneOrTwoPlayers = false) {
+		    			
+		    		}
+		    		
+		    	}
+		    	
+                if(wonOrNot = false) {
+		    		
+		    	}
+		    	
+		    	
+		    	
 		    }
 		    
 		    
