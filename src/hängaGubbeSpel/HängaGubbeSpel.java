@@ -127,7 +127,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	public static void theDegreesOfDifficulty(String name, boolean sentencesOrWords, boolean oneOrTwoPlayers, String secondPlayerName) {
 		int degreeOfDifficulty = 0;
 		
-		if (oneOrTwoPlayers = true) {
+		if (oneOrTwoPlayers = false) {
 			
 		
 		if (sentencesOrWords = true) {
@@ -168,7 +168,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 				}
 				else {
 					System.out.println("Ok!");
-					ifRandomized(name,false,degreeOfDifficulty,false);
+					ifRandomized(name,false,degreeOfDifficulty,false,true);
 				}
 				
 				
@@ -176,7 +176,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		}
 		}
 		
-		if (oneOrTwoPlayers = false) {
+		if (oneOrTwoPlayers = true) {
 			
 			if (sentencesOrWords = true) {
 				System.out.println("Ok " + name + " och " + secondPlayerName + "På vilken svårighetsgrad skulle ni vilja gissa på? " );
@@ -193,6 +193,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 					}
 					else {
 						System.out.println("Ok!");
+						randomizedOrNot(name,true,true,secondPlayerName,degreeOfDifficulty);
 					}
 					
 					
@@ -215,6 +216,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 					}
 					else {
 						System.out.println("Ok!");
+						randomizedOrNot(name,false,true,secondPlayerName,degreeOfDifficulty);
 					}
 					
 					
@@ -228,9 +230,65 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		
 	}
 	
+	public static void randomizedOrNot(String name, boolean sentencesOrWords, boolean oneOrTwoPlayers, String secondPlayerName, int degreeOfDifficulty) {
+		String svar1A = "slumpa";
+		String svar1B = "Slumpa";
+		String svar2A = "välja";
+		String svar2B = "Välja";
+		
+		
+		if (sentencesOrWords = true) {
+			System.out.println("Ok! " + name + " och " + secondPlayerName + " Skulle ni vilja själva välja ett ord från bibloteket som en av er ska gissa på");
+			System.out.println("Eller, skulle ni vilja slumpa fram ett ord? (slumpa/välja)");
+			
+			Scanner input = new Scanner(System.in);
+			String svar = input.nextLine();
+			
+			if(svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
+				System.out.println("Ok!");
+				ifRandomized(name,true,degreeOfDifficulty,true,secondPlayerName);
+			
+			}
+			
+			if(svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
+				System.out.println("Ok!");
+				ifNotRandomized(name,true,true,secondPlayerName,degreeOfDifficulty);
+			}
+			
+			
+		}
+		
+		if (sentencesOrWords = false) {
+			System.out.println("Ok! " + name + " och " + secondPlayerName + " Skulle ni vilja själva välja ett mening från bibloteket som en av er ska gissa på");
+			System.out.println("Eller, skulle ni vilja slumpa fram ett mening?");
+			
+			Scanner input = new Scanner(System.in);
+			String svar = input.nextLine();
+			
+			if(svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
+				System.out.println("Ok!");
+				ifRandomized(name,false,degreeOfDifficulty,true,secondPlayerName);
+			
+			}
+			
+			if(svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
+				System.out.println("Ok!");
+				ifNotRandomized(name,false,true,secondPlayerName,degreeOfDifficulty);
+			}
+		}
+		
+		
+	}
 	
 	
-	public static void ifRandomized(String name, boolean sentencesOrWords, int degreeOfDifficulty, boolean oneOrTwoPlayers) {
+	public static void ifNotRandomized(String name, boolean sentencesOrWords, boolean oneOrTwoPlayers, String secondPlayerName, int degreeOfDifficulty) {
+		
+	}
+	
+	
+	
+	
+	public static void ifRandomized(String name, boolean sentencesOrWords, int degreeOfDifficulty, boolean oneOrTwoPlayers, String secondPlayerName) {
 		
 		if(sentencesOrWords == true) {
 			if (degreeOfDifficulty == 1) {
