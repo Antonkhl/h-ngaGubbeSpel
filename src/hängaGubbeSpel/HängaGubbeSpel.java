@@ -13,7 +13,8 @@ public class HängaGubbeSpel {
  
 
 public static void main(String[] args) {
-	mainGame("name",true,"name2",true,true,"supercool",true,"progress",0,0,0,0);
+	instruktionsNamn("namn");
+	//Anropar den första metoden som ska vägleda genom hela programet
 	
 }
 
@@ -23,6 +24,7 @@ public static void instruktionsNamn(String namn) {
 	System.out.println("Jag kommer nu framöver i programet fråga dig/er några frågor för att forma denna hänge gubbespel på det sättet ni vill, och som passar er. Och sedan innan vi börjar ska jag förklara reglerna beroende på dom val ni har valt. ");
 	System.out.println("På vägen kommer jag ochså berätta relevans till allt jag frågar er");
 	System.out.println("Men innan vi börjar med all detta, var heter du?");
+	//Välkomnings meddelande och några instruktioner till hur programet ska vara fram över. Sedan frågar programet om namn som skall senare användas över hela klassen.
 	
 	Scanner input = new Scanner(System.in);
 	String name = input.nextLine();
@@ -30,6 +32,7 @@ public static void instruktionsNamn(String namn) {
 	System.out.println("Hej " + name + "! Hoppas att du kommer gilla min program");
 	
 	twoOnePlayers(name, false);
+	//Namnet anges och sedan går det vidare till nästa metod, som ska definera om det ska vara en eller två spelare läge.
 }
 
 public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
@@ -37,6 +40,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	String svar1B = "two";
 	String svar2A = "En";
 	String svar2B = "en";
+	//
 	
 	System.out.println("Ok " + name + " Skulle du vilja köra i tvåspelarläge eller enspelareläge? (En/Two)");
 	Scanner input = new Scanner(System.in);
@@ -763,7 +767,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                        guessedPos.set(i, c.charAt(0));
 	                        guessed++;
 	                      
-	                        if(wrong < 1) {  
+	                        if(wrong  == 1) {  
 		                          System.out.print("+---+\r\n" + 
 			                          		"  |   |\r\n" + 
 			                          		"      |\r\n" + 
@@ -838,7 +842,6 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                        	System.out.println("Gubben hängdes :(");
 	                        	 
 	                        }
-	                        wrong--;
 	                      }
 	                      
 	                    } 
@@ -847,7 +850,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                     System.out.println("Du svarade fel!");
 	                      
 	                     
-	                     if(wrong < 0) {  
+	                     if(wrong == 0) {  
 	                          System.out.print("+---+\r\n" + 
 		                          		"  |   |\r\n" + 
 		                          		"      |\r\n" + 
@@ -868,7 +871,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 	                          		"=========''', '''");
 	                         
 	                        }
-                        System.out.println(wrong);
+          
                         
                         if(wrong == 2) { 
 	                          System.out.print("+---+\r\n" + 
@@ -1014,7 +1017,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    	
 		    }
 		    
-		    public static void restartOrNot(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft, int wrong, int degreeOfDifficulty, boolean wonOrNot ) {
+		    public static void restartOrNot(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, boolean playerGuessing, int degreeOfDifficulty) {
 		    	String svar1A = "Igen";
 		        String svar1B = "igen";
 		        String svar2A = "avsluta";
@@ -1026,7 +1029,18 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    	String svar = input.nextLine();
 		    	
 		    	if(svar.contentEquals(svar1A) || svar.contentEquals(svar1B)) {
-		    		System.out.println("Ok!");
+		    		if (oneOrTwoPlayers = true) {
+		    			if(sentencesOrWords = true ) {
+		    				if(selfDefining = false) 
+		    				System.out.println("Ok!");
+		    			}
+		    			
+		    		}
+		    		
+		    		if (oneOrTwoPlayers = false) {
+		    			System.out.println("Ok!");
+		    		}
+		    		
 		    	}
 		    	
 		    	if(svar.contentEquals(svar2A) || svar.contentEquals(svar2B)) {
@@ -1037,7 +1051,7 @@ public static void twoOnePlayers(String name, boolean oneOrTwoPlayers) {
 		    }
 		    
 		    public static void restartButAtWhatPoint(String name, boolean oneOrTwoPlayers, String secondPlayerName, boolean sentencesOrWords, boolean selfDefining, String correctWord, boolean playerGuessing, String progress, int wrongAnswers, int rightAnswers, int triesLeft, int wrong, int degreeOfDifficulty, boolean wonOrNot ) {
-		    	
+		    	System.out.println("Var vill du/ni börja om någonstans?");
 		    	
 		    }
 		 
